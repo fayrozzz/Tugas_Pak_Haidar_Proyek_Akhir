@@ -15,9 +15,10 @@
     <div class="container">
       <!--LOGO-->
       <a class="navbar-brand fw-bold logo" href="index.html">
-        <img src="assets/logo.png" alt="Nimendo">
+        <img src="assets/keris 1.png" alt="lokalsumenep.id">
         <h6 class="text">LokalSumenep.id</h6 class="text">
       </a>
+
       <!--Navbar Button-->
       <div class="collapse navbar-collapse" id="navMenu">
           <ul class="navbar-nav mx-auto">
@@ -26,12 +27,57 @@
             <li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
           </ul>
       </div>
-      <div class="navter">
+
+<div class="navter">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item"><a class="nav-link" href="Beranda.html">Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="About.html">Sign up</a></li>
+              <li class="nav-item" id="navLoginButton">
+                  <a class="nav-link" href="#" data-bs-toggle="Modal fade" data-bs-target="#loginModal">Login</a>
+    </div>
+              </li>
+              <li class="nav-item" id="navSignupButton">
+                  <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Sign up</a>
+              </li>
           </ul>
       </div>
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Selamat datang kembali di E-Katalog Sumenep! Jelajahi dan promosikan produk lokal kebanggaan Madura.</p>
+        
+        <button class="btn btn-outline-primary w-100 mb-3" style="font-weight: 600;">
+            <i class="bi bi-google me-2"></i> Log in with Google
+        </button>
+
+        <p class="text-center">Or</p>
+
+        <form>
+            <div class="mb-3">
+                <label for="usernameEmail" class="form-label visually-hidden">Username/Email</label>
+                <input type="text" class="form-control" id="usernameEmail" placeholder="Username/Email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label visually-hidden">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-success w-100 mt-2" style="background-color: #587042; border-color: #587042;">
+                Log In
+            </button>
+        </form>
+        
+        <small class="mt-3 d-block">Don't have an account? <a href="#" style="color: #587042;">Sign up</a></small>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
       <!--HUMBERGER ICON-->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
@@ -42,9 +88,9 @@
 <main class="hero-section">
     
     <div class="hero-content">
-        <h1>Menjelajahi Keindahan dan Kearifan...</h1>
-        <p>lokalSumenep.id adalah E-Katalog...</p>
-        <a href="#section-bawah">nbuiu<span class="scroll-down-icon"></span></a>
+        <h1>Explore keunikan produk lokal</h1>
+        <p>Temukan pesona produk lokal Sumenep yang kaya akan budaya dan cita rasa. Dari hasil karya tangan para pengrajin hingga produk olahan khas daerah, kami hadir untuk memperkenalkan keindahan dan potensi lokal yang patut dibanggakan.</p>
+        <a href="#section-bawah">lihat produk<span class="scroll-down-icon"></span></a>
     </div>
 
     <div class="hero-shading"></div>
@@ -57,5 +103,43 @@
   <footer class="text-white text-center">
     <p>© 2025 LokalSumenep.id</p>
   </footer>
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      </div>
+
+  <script>
+    const loginModal = document.getElementById('loginModal');
+    const signupModal = document.getElementById('signupModal');
+    const loginBtn = document.getElementById('navLoginButton');
+    const signupBtn = document.getElementById('navSignupButton');
+
+    function toggleNavbarButtons(visibility) {
+        loginBtn.style.visibility = visibility;
+        signupBtn.style.visibility = visibility;
+    }
+
+    // Ketika Modal Login atau Sign Up mulai ditampilkan
+    loginModal.addEventListener('show.bs.modal', function () {
+        toggleNavbarButtons('hidden');
+    });
+    signupModal.addEventListener('show.bs.modal', function () {
+        toggleNavbarButtons('hidden');
+    });
+
+    // Ketika Modal Login atau Sign Up ditutup
+    loginModal.addEventListener('hidden.bs.modal', function () {
+        // Cek apakah Modal Sign Up sedang terbuka saat Login ditutup
+        if (!signupModal.classList.contains('show')) {
+            toggleNavbarButtons('visible');
+        }
+    });
+    signupModal.addEventListener('hidden.bs.modal', function () {
+        // Cek apakah Modal Login sedang terbuka saat Sign Up ditutup
+        if (!loginModal.classList.contains('show')) {
+            toggleNavbarButtons('visible');
+        }
+    });
+</script>
+
 </body>
 </html>
